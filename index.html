@@ -1,180 +1,131 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            Web Page
-        </title>
-    </head>
-    <style>
-        img{
-            width:120px;
-            height:120px;
-            border-radius:50%;
-            margin:10px 0;
-            border:5px solid white;
-            animation:zoom 3s;
-        }
-        @keyframes zoom{
-            from{
-                transform:scale(0.5);
-            }
-            to{
-                transform: scale(1);
-            }
-        }
-        nav a{
-            color: white;
-            text-decoration: none;
-            margin:15px;
-            font-weight: bold;
-            transition:0.3s;
-        }
-        nav a:hover{
-            color:yellowgreen;
-        }
-        header{
-            background-color:rgb(127, 177, 235);
-            color: white;
-            text-align: center;
-        }
-        section{
-            width:80%;
-            margin: 20px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow:0 0 10px
-            rgba(143, 41, 41, 0.1);
-        }
-        h2{
-            color: #0077b6;
-            margin-bottom: 15px;
-            animation: fade 2s;
-        }
-        table{
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table,th,td{
-            border: 2px solid #2b8ab6cc;
-        }
-        th,td{
-            padding: 10px;
-            text-align:center;
-        }
-        .skills,
-        .projects{
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        .card{
-            width: 200px;
-            background: #eaf6ff;
-            padding: 20px;
-            margin: 10px;
-            text-align: center;
-            border-radius: 10px;
-            transition: 04s;
-        }
-        .card:hover{
-            background: #0077b6;
-            color: white;
-            transform: translateY(-10px);
-        }
-        
-        
-    </style>
-    <body>
-        <header>
-            <img src="beg2.jpeg">
-            <h1>Aman Patel</h1>
-            <p>Web Developer | Student</p>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sahil Kamble | Portfolio</title>
+<style>
+:root{--bg:#ffffff;--bg2:#f1f5ff;--fg:#0b0f1a;--mut:#4b5568;--blue:#2563eb;--card:#ffffff;--bd:#dbe4ff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0f1a;--bg2:#0f1626;--fg:#f5f7ff;--mut:#9aa6c1;--blue:#4f8cff;--card:#121a2c;--bd:#22304f}}
+:root[data-theme="dark"]{--bg:#0b0f1a;--bg2:#0f1626;--fg:#f5f7ff;--mut:#9aa6c1;--blue:#4f8cff;--card:#121a2c;--bd:#22304f}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;display:flex;justify-content:space-between;align-items:center;padding:14px 6vw;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.logo{font-weight:800;font-size:1.2rem}.logo span{color:var(--blue)}
+nav div{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+nav a{color:var(--fg);text-decoration:none;font-size:.92rem;font-weight:500;transition:color .2s}
+nav a:hover{color:var(--blue)}
+#theme{background:var(--blue);color:#fff;border:0;border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:1rem}
+section{padding:90px 6vw;max-width:1100px;margin:auto}
+h2{font-size:2rem;margin-bottom:34px;position:relative;display:inline-block}
+h2::after{content:"";position:absolute;left:0;bottom:-8px;height:4px;width:60%;background:var(--blue);border-radius:4px}
+#home{min-height:88vh;display:flex;flex-direction:column;justify-content:center;position:relative}
+.blob{position:absolute;right:-5%;top:10%;width:340px;height:340px;max-width:60vw;max-height:60vw;background:radial-gradient(circle at 30% 30%,var(--blue),#0b0f1a);border-radius:50%;opacity:.25;filter:blur(8px);animation:float 7s ease-in-out infinite;z-index:-1}
+@keyframes float{50%{transform:translateY(-30px) scale(1.06)}}
+.hi{color:var(--blue);font-weight:600;letter-spacing:.1em}
+h1{font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.1;margin:8px 0}
+h1 span{background:linear-gradient(90deg,var(--blue),#60a5fa,var(--blue));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 4s linear infinite}
+@keyframes shine{to{background-position:200%}}
+.role{font-size:1.3rem;color:var(--mut);min-height:2em}
+.role b{color:var(--fg)}
+.cur{display:inline-block;width:2px;height:1.1em;background:var(--blue);vertical-align:middle;margin-left:3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.btns{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:12px 26px;border-radius:30px;text-decoration:none;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn.p{background:var(--blue);color:#fff}.btn.s{border:2px solid var(--blue);color:var(--blue)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(37,99,235,.35)}
+.alt{background:var(--bg2);max-width:none}.alt>.in{max-width:1100px;margin:auto}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:24px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 14px 30px rgba(37,99,235,.2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.tl{border-left:3px solid var(--blue);padding-left:22px;display:grid;gap:20px}
+.tl .card{position:relative}
+.tl .card::before{content:"";position:absolute;left:-34px;top:28px;width:14px;height:14px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 5px var(--bg2)}
+.tl small{color:var(--blue);font-weight:700}
+.tl h3{margin:4px 0}.tl p{color:var(--mut)}
+.skill{margin-bottom:18px}
+.skill div{display:flex;justify-content:space-between;font-weight:600;margin-bottom:6px}
+.bar{height:10px;background:var(--bd);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#60a5fa);border-radius:10px;transition:width 1.4s ease}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:8px 16px;border-radius:20px;background:var(--card);border:1px solid var(--bd);font-weight:500}
+.ico{font-size:2rem}
+.card h3{margin:8px 0 4px}.card p{color:var(--mut)}
+footer{text-align:center;padding:30px;background:#0b0f1a;color:#cbd5f5}
+footer b{color:#60a5fa}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+@media(max-width:640px){nav div a{display:none}nav div #theme{display:block}}
+</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="#home">Sahil<span>.</span></a>
+<div><a href="#about">About</a><a href="#education">Education</a><a href="#skills">Skills</a><a href="#hobbies">Hobbies</a><a href="#contact">Contact</a><button id="theme" aria-label="Toggle theme">◐</button></div>
+</nav>
 
-            <nav>
-                <a href="#">About</a>
-                <a href="#">Education</a>
-                <a href="#">Skills</a>
-                <a href="#">Projects</a>
-                <a href="#">Contacts</a>
-            </nav>
-        </header>
-        <section id="About">
-            <h3>About Me</h3>
-            <p>Hello Iam a passionate student who enjoys earnings web development and creating attractive website using HTML and CSS</p>
-            <br>
-        </section>
-        <section id="Education">
-            <h3>Education</h3>
-            
-            <table border="2">
-                <tr>
-                <td>Qualification</td>
-                <td>Institute</td>
-                <td>Year</td>
-                <td>Percentage</td>
-                </tr>
+<section id="home">
+<div class="blob"></div>
+<p class="hi">HELLO, I'M</p>
+<h1><span>Sahil Kamble</span></h1>
+<p class="role"><b id="typed"></b><span class="cur"></span></p>
+<div class="btns"><a class="btn p" href="#about">About Me</a><a class="btn s" href="#skills">My Skills</a></div>
+</section>
 
-                <tr>
-                <td>B.Sc. Computer Science</td>
-                <td>ABC College</td>
-                <td>2026</td>
-                <td>85%</td>
-                </tr>
+<div class="alt" id="about-wrap" style="background:var(--bg2)"><section id="about" class="rv">
+<h2>About Me</h2>
+<p style="max-width:700px;color:var(--mut);font-size:1.1rem">I'm Sahil Kamble, a BCA second-year student at SKE BCA College, Chandgad. I enjoy programming, learning new technologies and exploring Artificial Intelligence. I hold a certified course in AI and I'm always keen to build things that work and look good.</p>
+</section></div>
 
-                <tr>
-                <td>HSC</td>
-                <td>XYZ College</td>
-                <td>2023</td>
-                <td>82%</td>
-                </tr>
-
-                <tr>
-                <td>SSC</td>
-                <td>PQR College</td>
-                <td>2021</td>
-                <td>90%</td>
-                </tr>
-            </table>
-        </section>
-
-        <section id="Skills">
-        <h3>Skills</h3>
-            <div class="card">HTML</div>
-            <div class="card">CSS</div>
-            <div class="card">JAVA</div>
-            <div class="card">PYTHON</div>
-            <br>
-            </section>
-
-        <section id="Projects">
-    <h3>Projects</h3>
-    <div class="card">
-        
-    <h2>profile Website </h2>
-    <p>Personal created using HTML and CSS </p>
-    </div>
-    <div class = "card">
-        <h3>Restaurant Website</h3>
-        <p>Simple restaurant landing page</p>
-    </div>
-    <div class ="card">
-        <h3>Product page</h3>
-        <p>Responsive product showcase webpage.</p>
-    </div>
+<section id="education" class="rv">
+<h2>Education</h2>
+<div class="tl">
+<div class="card"><small>PRESENT</small><h3>BCA – 3rd Semester</h3><p>SKE BCA College, Chandgad</p></div>
+<div class="card"><small>12TH</small><h3>N.B.Patil Jr College, Chandgad</h3><p>Scored 50%</p></div>
+<div class="card"><small>10TH</small><h3>The New English School, Chandgad</h3><p>Scored 70%</p></div>
 </div>
 </section>
-<section id="Contacts">
-    <h3>Contact us</h3>
-         <tr>
-            <td>Enter your Name: </td>
-             <td><input type="text"></td>
-        </tr><br>
-        
-            <tr>
-            <td>Enter your email: </td>
-             <td ><input type="email"></td>
-        </tr><br>
+
+<div style="background:var(--bg2)"><section id="skills" class="rv">
+<h2>Technical Skills</h2>
+<div class="grid">
+<div class="card"><div class="skill" style="margin:0"><div><span>HTML</span></div></div><p>Structure of the web</p></div>
+<div class="card"><div class="skill" style="margin:0"><div><span>CSS</span></div></div><p>Styling &amp; animation</p></div>
+<div class="card"><div class="skill" style="margin:0"><div><span>Java</span></div></div><p>Object-oriented programming</p></div>
+<div class="card"><div class="skill" style="margin:0"><div><span>C</span></div></div><p>Programming fundamentals</p></div>
+<div class="card"><div class="skill" style="margin:0"><div><span>Python</span></div></div><p>Scripting &amp; AI</p></div>
+<div class="card"><div class="ico">🏅</div><h3>Certified AI Course</h3><p>Completed a certified course in Artificial Intelligence</p></div>
+</div>
+</section></div>
+
+<section id="hobbies" class="rv">
+<h2>Hobbies</h2>
+<div class="grid">
+<div class="card"><div class="ico">📺</div><h3>Watching Anime</h3><p>Stories and worlds that spark creativity.</p></div>
+<div class="card"><div class="ico">📚</div><h3>Reading Manga</h3><p>Always on the lookout for the next great series.</p></div>
+</div>
 </section>
-    </body>
+
+<div style="background:var(--bg2)"><section id="contact" class="rv" style="text-align:center">
+<h2>Let's Connect</h2>
+<p style="color:var(--mut);margin-bottom:22px">Interested in working together or just saying hi? Get in touch.</p>
+<a class="btn p" href="mailto:">Say Hello</a>
+</section></div>
+
+<footer>Designed &amp; built by <b>Sahil Kamble</b> · Chandgad, Maharashtra</footer>
+
+<script>
+(function(){
+var roles=["BCA Student","Python Learner","AI Enthusiast","Anime Fan"],i=0,j=0,del=false,el=document.getElementById("typed");
+function tick(){var w=roles[i];el.textContent=w.slice(0,j);
+if(!del&&j<w.length){j++;setTimeout(tick,110)}else if(!del){del=true;setTimeout(tick,1200)}else if(j>0){j--;setTimeout(tick,55)}else{del=false;i=(i+1)%roles.length;setTimeout(tick,300)}}
+tick();
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add("on")})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(n){io.observe(n)});
+document.getElementById("theme").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);r.setAttribute("data-theme",d?"light":"dark")};
+})();
+</script>
+</body>
 </html>
